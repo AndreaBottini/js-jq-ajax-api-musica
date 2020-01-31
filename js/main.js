@@ -13,25 +13,18 @@ $(document).ready(function() {
     error: function (data, response) {
       alert('Errore del server. Correggi!')
     }
-
-    // var source = $("entry-template").HTML;
-    // var template = Handlebars.compile(source);
-    //
-    // var context = {
-    //   img: "poster"
-    //   title: "title",
-    //   author: "author",
-    //   year: "year"
-    //  };
-    // var html = template(context);
-
-  })
+  });
 });
 
 function printData (variousCd){
-  console.log(variousCd);
+  // console.log(variousCd);
   for (var i = 0; i < variousCd.length; i++) {
     var discs = variousCd[i]
     console.log(discs);
+    var source = $("#entry-template").html();
+    var template = Handlebars.compile(source);
+    var html = template(discs);
+
+    $('.cds-container').append(html)
   }
 }
